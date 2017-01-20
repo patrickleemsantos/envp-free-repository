@@ -1,0 +1,189 @@
+<div class="pages">
+  <div data-page="tournament-detail" class="page navbar-fixed toolbar-fixed" >
+    <div id="tournament-background-image" class="navbar" style="height:200px; background-size: 100% 100%;">
+      <div class="ks-grid" style="margin-top:50px;">
+        <div class="content-block">
+          <div class="row no-gutter">
+            <div class="col-33" style="padding:0px; margin:0px;"><img id="img-tournament-det-team-image" src="img/envp-icon-e.png" class="img-circle" style="width:90px; height:90px;"/></div>
+            <div class="col-33" style="padding:0px; margin:0px;">
+              <p id="tournament-status" style="color:white; margin-bottom:0px;"></p>
+              <p style="color:white; margin-top:0px;"><font id="tournament-score" size="3"></font></p>
+              <p style="color:white; margin-top:0px;"><font id="tournament-win-lose" size="2"></font></p>
+            </div>
+            <div class="col-33" style="padding:0px; margin:0px;"><img id="img-tournament-det-opp-image" src="img/envp-icon-e.png" class="img-circle" style="width:90px; height:90px;"/></div>
+          </div>
+        </div>
+      </div>
+      <div class="navbar-inner">
+        <div class="left" style="padding-bottom:150px;">
+          <a href="tournament_list.html" class="link icon-only"><i class="icon icon-back"></i></a>
+        </div>
+        <div id="tournament-name" class="center" style="padding-top:150px;"></div>
+        <div class="right" style="padding-bottom:150px;">
+          <a id="btn-tournament-refresh" href="#" class="link icon-only"><i class="fa fa-refresh" aria-hidden="true"></i></a>
+          <a href="#" class="link  icon-only popop-tournament-options"><i class="icon icon-bars"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="toolbar tabbar tabbar-scrollable theme-indigo" style="padding-top:190px;">
+      <div class="toolbar-inner">
+        <a id="lbl-tournament-detail-stats" href="#stats" style="padding-top:145px;" class="tab-link active">Statistics</a>
+        <a id="lbl-tournament-detail" href="#detail" style="padding-top:145px;" class="tab-link"></a>
+        <a id="lbl-tournament-detail-roster" href="#roster" style="padding-top:145px;" class="tab-link"></a>
+        <a id="lbl-tournament-detail-fine-box" href="#fine" style="padding-top:145px;" class="tab-link"></a>
+        <a id="lbl-tournament-detail-mvp" href="#mvp" style="padding-top:145px;" class="tab-link"></a>
+      </div>
+    </div>
+    <div id="div-add-tournament-roster">
+      <a id="btn-add-tournament-roster" href="tournament_roster_list.html" class="floating-button color-pink"><i class="icon icon-plus"></i></a>
+    </div>
+    <div id="div-add-tournament-fine">
+      <a id="btn-add-tournament-fine" href="fine_add.html" class="floating-button color-blue"><i class="icon icon-plus"></i></a>
+    </div>
+    <div class="tabs-swipeable-wrap">
+      <div class="tabs">
+        <div id="stats" class="page-content tab active" style="padding-top:220px;">
+        <div class="ks-grid">
+            <div class="content-block">
+               <div class="row">
+                  <div class="col-100">
+                    <div class="row">
+                      <div class="col-40" style="padding:0px; margin:0px;">
+                        <p id="team-name" style="font-weight:bold;"></p>
+                      </div>
+                      <div class="col-20" style="padding:0px; margin:0px;">
+                        <p><b id="lbl-tournament-detail-versus"></b></p>
+                      </div>
+                      <div class="col-40" style="padding:0px; margin:0px;">
+                        <p id="opponent-name" style="font-weight:bold;"></p>
+                      </div>
+                      <div class="col-40" style="padding:0px; margin:0px;">
+                        <p id="team-points"></p>
+                      </div>
+                      <div class="col-20" style="padding:0px; margin:0px;">
+                        <p><b id="lbl-tournament-detail-score"></b></p>
+                      </div>
+                      <div class="col-40" style="padding:0px; margin:0px;">
+                        <p id="opponent-points"></p>
+                      </div>
+                      <div class="col-40" style="padding:0px; margin:0px;">
+                        <p id="team-assists"></p>
+                      </div>
+                      <div class="col-20" style="padding:0px; margin:0px;">
+                        <p><b id="lbl-tournament-detail-assist"></b></p>
+                      </div>
+                      <div class="col-40" style="padding:0px; margin:0px;">
+                        <p id="opponent-assists"></p>
+                      </div>
+                      <div class="col-40 col-team-fouls" style="padding:0px; margin:0px;">
+                        <p id="team-fouls"></p>
+                      </div>
+                      <div class="col-20 col-team-fouls" style="padding:0px; margin:0px;">
+                        <p><b id="lbl-tournament-detail-foul"></b></p>
+                      </div>
+                      <div class="col-40 col-team-fouls" style="padding:0px; margin:0px;">
+                        <p id="opponent-fouls"></p>
+                      </div>
+                      <div class="col-40 col-yellowcard" style="padding:0px; margin:0px;">
+                        <p id="team-yellowcard"></p>
+                      </div>
+                      <div class="col-20 col-yellowcard" style="padding:0px; margin:0px;">
+                        <p><b id="lbl-tournament-detail-yellowcard"></b></p>
+                      </div>
+                      <div class="col-40 col-yellowcard" style="padding:0px; margin:0px;">
+                        <p id="opponent-yellowcard"></p>
+                      </div>
+                      <div class="col-40 col-redcard" style="padding:0px; margin:0px;">
+                        <p id="team-redcard"></p>
+                      </div>
+                      <div class="col-20 col-redcard" style="padding:0px; margin:0px;">
+                        <p><b id="lbl-tournament-detail-redcard"></b></p>
+                      </div>
+                      <div class="col-40 col-redcard" style="padding:0px; margin:0px;">
+                        <p id="opponent-redcard"></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="content-block" style="margin-top:0px;">
+                <p style="margin-top:0px;"><a href="#" id="btn-edit-team-stats" class="button button-big button-fill button-raised color-teal">Edit</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="detail" class="page-content tab" style="padding-top:240px;">
+          <div id="lbl-tournament-detail-opponent" class="content-block-title"></div>
+          <div class="content-block" style="margin-bottom:0px;">
+            <p id="txt-opponent-name"></p>
+          </div>
+          <div id="lbl-tournament-detail-location" class="content-block-title" style="padding-top:0px; margin-top:0px;"></div>
+          <div class="content-block" style="margin-bottom:0px;">  
+            <p id="txt-tournament-location"></p>
+          </div>
+          <div id="lbl-tournament-detail-date" class="content-block-title" style="padding-top:0px; margin-top:0px;"></div>
+          <div class="content-block" style="margin-bottom:0px;">  
+            <p id="txt-tournament-date"></p>
+          </div>
+          <div id="lbl-tournament-detail-description" class="content-block-title" style="padding-top:0px; margin-top:0px;"></div>
+          <div class="content-block">  
+            <p id="txt-tournament-description"></p>
+          </div>
+          <div class="content-block" style="margin-top:0px;">
+            <p style="margin-top:0px;"><a href="#" id="btn-edit-tournament-details" class="button button-big button-fill button-raised color-teal"></a></p>
+          </div>
+        </div>
+        <div id="roster" class="page-content tab" style="padding-top:250px;">
+          <div class="content-block">
+            <div class="list-block media-list">
+              <ul id="roster_list">
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div id="fine" class="page-content tab" style="padding-top:250px;">
+          <div class="content-block">
+            <div class="list-block media-list">
+              <ul id="fine_list">
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div id="mvp" class="page-content tab" style="padding-top:250px;">
+          <div id="div-vote-add">
+            <div id="lbl-tournament-detail-enter-vote" class="content-block-title"></div>
+            <div class="list-block inputs-list">
+              <ul>
+                <li>
+                  <a href="#" class="item-link smart-select" data-open-in="picker">
+                    <select id="select-vote-list" name="roster">
+                      <option value="" selected="selected">Select a roster</option>
+                    </select>
+                    <div class="item-content">
+                      <div class="item-inner">
+                        <div id="lbl-tournament-detail-roster-vote" class="item-title"></div>
+                      </div>
+                  </div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="content-block">
+              <p><a href="#" id="btn-submit-vote" class="button button-big button-fill button-raised color-teal"></a></p>
+            </div>
+          </div>
+          <div id="div-vote-result">
+            <div class="content-block">
+              <div class="list-block media-list">
+                <ul id="vote_list">
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+

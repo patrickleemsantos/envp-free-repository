@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="theme-color" content="#2196f3">
+    <title>Envp</title>
+    
+    <link rel="stylesheet" href="css/framework7.material.css">
+    <link rel="stylesheet" href="css/framework7.material.colors.css"> 
+    <link rel="stylesheet" href="css/envyp.css">
+    <!-- <link rel="stylesheet" href="css/framework7.material.min.css">
+    <link rel="stylesheet" href="css/framework7.material.colors.min.css">
+    <link rel="stylesheet" href="css/envyp.min.css"> -->
+    <!-- <link href="http://fonts.googleapis.com/css?family=Roboto:400,300,500,700" rel="stylesheet" type="text/css"> -->
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <link rel="icon" href="img/envp-icon-e.png">
+    <link href="css/font.css" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet"> -->
+
+    <style>
+      body {
+        font-family: 'Source Sans Pro', sans-serif;
+      }
+    </style>
+  </head>
+  <body class="theme-green">
+  <div class="panel-overlay"></div>
+  <div class="panel panel-left panel-cover">
+     <div class="pages navbar-fixed">
+      <div data-page="panel-right2" class="page">
+        <div class="navbar">
+          <div class="navbar-inner">
+            <div class="left"></div>
+            <div id="lbl-profile" class="center">Profile</div>
+            <div class="right"></div>
+          </div>
+        </div>
+        <div class="page-content">
+          <div class="center-inner">
+            <div class="login-screen-title" style="padding-top:45px; padding-bottom:15px; background: url('img/bg-pattern.png'), #93c01f">
+                <img id="img-profile-image" width="90px" height="90px" class="img-circle fit center">
+                <center> 
+                  <div id="div-profile-name" class="content-block-title" style="font-weight: bold;"></div>
+                </center>
+            </div>
+          </div>
+          <div class="list-block" style="padding-top:0px; margin-top:0px; border-top:0px;">
+            <ul>
+              <li>
+                <div class="item-content">
+                  <div class="item-inner"> 
+                    <div class="item-title"><a id="btn-my-teams" href="my_team_list.html" class="link icon-only"></a></div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="item-content">
+                  <div class="item-inner"> 
+                    <div class="item-title"><a id="btn-edit-profile" href="#" class="link icon-only"></a></div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="item-content">
+                  <div class="item-inner"> 
+                    <div class="item-title"><a id="btn-inbox" href="inbox.html" class="link icon-only"></a></div>
+                    <div id="div-inbox-badge" class="item-after"></div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="item-content">
+                  <div class="item-inner"> 
+                    <div class="item-title"><a id="btn-choose-language" href="#" onClick="chooseLanguage();" class="link icon-only"></a></div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="item-content">
+                  <div class="item-inner"> 
+                    <div class="item-title"><a id="btn-settings" href="settings.html" class="link icon-only"></a></div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="item-content">
+                  <div class="item-inner"> 
+                    <div class="item-title"><a id="btn-logout" href="#" class="link icon-only"></a></div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div> 
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-right panel-cover">
+     <div class="pages navbar-fixed">
+      <div data-page="panel-right1" class="page">
+        <div class="navbar">
+          <div class="navbar-inner">
+            <div class="left">
+              <a href="#" id="close-right-panel" class="link icon-only"><i class="icon icon-back"></i></a>
+            </div>
+            <div id="lbl-team-settings" class="center"></div>
+          </div>
+        </div>
+        <div class="page-content">
+          <div id="lbl-team-participants" class="content-block-title"></div>
+          <div class="list-block media-list">
+            <ul id="list-view-participants">
+            </ul>
+          </div>
+          <div id="lbl-team-administrators" class="content-block-title" style="padding-top:0px"></div>
+          <div class="list-block media-list">
+            <ul id="list-view-administrator">
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="views">
+        <div class="view view-main">
+            <div class="pages">
+              <div data-page="main" class="page blue_bg" data-page="login">
+                <div class="page-content center-outer">
+                  <div class="center-inner">
+                    <div class="login-screen-title">
+                        <img src="img/envp-logo.png" style="width:50%; height:50%;" class="img-responsive img-center" >
+                    </div>
+                    <div class="content-block">
+                      <!-- <p><a href="#" onclick="FBLogin();" class="button button-big button-fill button-raised color-indigo">Facebook</a></p> -->
+                      <center>
+                       <!--  <a href="" onclick="FBLogin();" class="link icon-only"><img src="img/btn-fb-login.png" alt="" class="img-responsive" style="height:48px;"/></a> -->
+                        <img onclick="FBLogin();" src="img/btn-fb-login.png" alt="" class="img-responsive" style="height:48px;"/>
+                      </center>
+                    </div>
+                    <div class="list-block inset inputs-list" style="width:100%;margin-left:auto;margin-right:auto;">
+                      <ul>
+                        <li>
+                          <div class="item-content">
+                            <div class="item-inner"> 
+                              <div class="input-account-form">
+                                <input id="txt-log-email-add" type="email" placeholder="Email"/>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="item-content">
+                            <div class="item-inner"> 
+                              <div class="input-account-form">
+                                <input id="txt-log-email-pass" type="password" placeholder="Password"/>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="content-block">
+                      <p><a href="#" id="btn-email-login" class="button button-big button-fill button-raised color-teal">Log in with Email</a></p>
+                      <p><a href="#" id="btn-signup-page" class="button button-big button-fill button-raised color-teal">Sign up with Email</a></p>
+                      <p><center><a href="#" id="btn-forgot-pass">Forgot Password?</a></center></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>  
+    
+    <!-- Terms & Condition -->
+    <div class="popup popup-terms">
+        <div class="navbar theme-indigo">
+          <div class="navbar-inner">
+            <div class="left"><a href="#" id="btn-close-terms" class="link icon-only"><i class="icon icon-back"></i></a></div>
+            <div class="center">Terms & Conditions</div>
+            <div class="right"></div>
+          </div>
+        </div>
+        <div class="content-block-title">Envp App End User License Agreement</div>
+            <div class="content-block">
+              <p>This End User License Agreement (“Agreement”) is between you and Envp and governs use of this app made available through the Apple App Store. By installing the Envp App, you agree to be bound by this Agreement and understand that there is no tolerance for objectionable content. If you do not agree with the terms and conditions of this Agreement, you are not entitled to use the Envp App.</p>
+              <p>In order to ensure Envp provides the best experience possible for everyone, we strongly enforce a no tolerance policy for objectionable content. If you see inappropriate content, please use the “Report as offensive” feature found under each post.</p>
+              <p>1. Parties</p>
+              <p>This Agreement is between you and Envp only, and not Apple, Inc. (“Apple”). Notwithstanding the foregoing, you acknowledge that Apple and its subsidiaries are third party beneficiaries of this Agreement and Apple has the right to enforce this Agreement against you. Envp, not Apple, is solely responsible for the Envp App and its content.</p>
+              <p>2. Privacy</p>
+              <p>Envp may collect and use information about your usage of the Envp App, including certain types of information from and about your device. Envp may use this information, as long as it is in a form that does not personally identify you, to measure the use and performance of the Envp App.</p>
+              <p>3. Limited License</p>
+              <p>Envp grants you a limited, non-exclusive, non-transferable, revocable license to use theEnvp App for your personal, non-commercial purposes. You may only use theEnvp App on Apple devices that you own or control and as permitted by the App Store Terms of Service.</p>
+              <p>4. Age Restrictions</p>
+              By using the Envp App, you represent and warrant that (a) you are 17 years of age or older and you agree to be bound by this Agreement; (b) if you are under 17 years of age, you have obtained verifiable consent from a parent or legal guardian; and (c) your use of the Envp App does not violate any applicable law or regulation. Your access to the Envp App may be terminated without warning if Envp believes, in its sole discretion, that you are under the age of 17 years and have not obtained verifiable consent from a parent or legal guardian. If you are a parent or legal guardian and you provide your consent to your child’s use of the Envp App, you agree to be bound by this Agreement in respect to your child’s use of the Envp App.</p>
+              <p>5. Objectionable Content Policy</p>
+              Content may not be submitted to Envp, who will moderate all content and ultimately decide whether or not to post a submission to the extent such content includes, is in conjunction with, or alongside any, Objectionable Content. Objectionable Content includes, but is not limited to: (i) sexually explicit materials; (ii) obscene, defamatory, libelous, slanderous, violent and/or unlawful content or profanity; (iii) content that infringes upon the rights of any third party, including copyright, trademark, privacy, publicity or other personal or proprietary right, or that is deceptive or fraudulent; (iv) content that promotes the use or sale of illegal or regulated substances, tobacco products, ammunition and/or firearms; and (v) gambling, including without limitation, any online casino, sports books, bingo or poker.</p>
+              <p>6. Warranty</p>
+              <p>Envp disclaims all warranties about the Envp App to the fullest extent permitted by law. To the extent any warranty exists under law that cannot be disclaimed, Envp, not Apple, shall be solely responsible for such warranty.</p>
+              <p>7. Maintenance and Support</p>
+              <p>Envp does provide minimal maintenance or support for it but not to the extent that any maintenance or support is required by applicable law, Envp, not Apple, shall be obligated to furnish any such maintenance or support.</p>
+              <p>8. Product Claims</p>
+              <p>Envp, not Apple, is responsible for addressing any claims by you relating to the Envp App or use of it, including, but not limited to: (i) any product liability claim; (ii) any claim that the Envp App fails to conform to any applicable legal or regulatory requirement; and (iii) any claim arising under consumer protection or similar legislation. Nothing in this Agreement shall be deemed an admission that you may have such claims.</p>
+              <p>9. Third Party Intellectual Property Claims</p>
+              <p>Envp shall not be obligated to indemnify or defend you with respect to any third party claim arising out or relating to the Envp App. To the extent Envp is required to provide indemnification by applicable law, Envp, not Apple, shall be solely responsible for the investigation, defense, settlement and discharge of any claim that the Envp App or your use of it infringes any third party intellectual property right.</p>
+            </div>
+          </div>
+    </div>
+    <!-- End of Terms & Condition -->
+
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxk72Dwc6EjFcJZ4sdcAIyNev1289u5q4&libraries=places"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/framework7.js"></script>
+    <script type="text/javascript" src="js/envyp.js"></script>
+    <!-- <script type="text/javascript" src="js/envyp.min.js"></script> -->
+  </body>
+</html>
