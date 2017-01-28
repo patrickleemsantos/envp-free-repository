@@ -994,8 +994,8 @@ myApp.onPageInit('team-list', function(page) {
                         }
                         return found;
                     },
-                    template: '<li>' +
-                        '<a href="#" onclick="getTeamPassword({{team_id}},{{team_admin}},\'{{team_name}}\',\'{{team_password}}\',\'{{team_image}}\',2)" class="item-link item-content">' +
+                    template: '<li class="swipeout">' +
+                        '<a href="#" onclick="getTeamPassword({{team_id}},{{team_admin}},\'{{team_name}}\',\'{{team_password}}\',\'{{team_image}}\',2)" class="item-link item-content swipeout-content">' +
                         '<div class="item-media"><img data-src="{{team_image}}" class="lazy lazy-fadein img-circle" style="width:44px; height:44px;"/></div>' +
                         '<div class="item-inner">' +
                         '<div class="item-title-row">' +
@@ -1003,8 +1003,9 @@ myApp.onPageInit('team-list', function(page) {
                         '</div>' +
                         '<div class="item-subtitle">Administrator: {{created_by}}</div>' +
                         '</div>' +
-                        '</a>' +
-                        '</li>',
+                        '</a><div class="swipeout-actions-left">' +
+                            '<a href="#" class="demo-actions" onClick="reportTeamAbusiveContent({{team_id}})">Report</a>' +
+                        '</div></li>',
                     height: 73,
                 });
                 myApp.initImagesLazyLoad(page.container);
@@ -1431,14 +1432,18 @@ myApp.onPageInit('roster-list', function(page) {
                         '</div>' +
                         '<div class="item-subtitle">{{roster_position}}</div>' +
                         '<div class="item-text"></div>' +
-                        '</div></a><div class="swipeout-actions-left"><a href="#" onClick="deleteRoster({{roster_id}})" data-confirm="Are you sure you want to delete? All votes and fines will be lost once you remove this roster." class="swipeout-delete">Delete</a></div></li>',
+                        '</div></a><div class="swipeout-actions-left">' +
+                            '<a href="#" class="demo-actions" onClick="reportRosterAbusiveContent({{roster_id}})">Report</a>' +
+                            '<a href="#" class="btn-swipe-delete" onClick="deleteRoster({{roster_id}})" data-confirm="Are you sure you want to delete? All votes and fines will be lost once you remove this roster." class="swipeout-delete">Delete</a>' +
+                        '</div></li>',
                     height: 73,
                 });
                 myApp.initImagesLazyLoad(page.container);
                 myApp.hideIndicator();
 
                 if ((localStorage.getItem('currentTeamAdmin') != localStorage.getItem('account_id')) && localStorage.getItem('currentAccountIsTeamAdmin') == 0) {
-                    $( "li" ).removeClass( "swipeout" );
+                    // $( "li" ).removeClass( "swipeout" );
+                    $('.btn-swipe-delete').hide(); 
                 }
 
                 $$('.demo-remove-callback').on('deleted', function () {
@@ -1470,6 +1475,56 @@ myApp.onPageInit('roster-list', function(page) {
 
 function deleteRoster(roster_id) {
     localStorage.setItem('selectedRosterID', roster_id);
+}
+
+function reportRosterAbusiveContent(content) {
+    myApp.prompt('Please enter a reason', function (value) {
+        if (value != '') {
+            callAbusiveContent('roster id: ' + content, value);
+        } else {
+            myApp.alert('Reason cannot be blank');
+        }
+    });
+}
+
+function reportTeamAbusiveContent(content) {
+    myApp.prompt('Please enter a reason', function (value) {
+        if (value != '') {
+            callAbusiveContent('team id: ' + content, value);
+        } else {
+            myApp.alert('Reason cannot be blank');
+        }
+    });
+}
+
+function reportTournamentAbusiveContent(content) {
+    myApp.prompt('Please enter a reason', function (value) {
+        if (value != '') {
+            callAbusiveContent('tournament id: ' + content, value);
+        } else {
+            myApp.alert('Reason cannot be blank');
+        }
+    });
+}
+
+function callAbusiveContent(content, value) {
+    myApp.showIndicator();
+            $$.ajax({
+                type: "POST",
+                url: ENVYP_API_URL + "add_abusive_content.php",
+                data: "account_id=" + localStorage.getItem('account_id') +
+                    "&content=" + content +
+                    "&reason=" + value,
+                dataType: "json",
+                success: function(msg, string, jqXHR) {
+                    myApp.hideIndicator();
+                    myApp.alert(msg.message);
+                },
+                error: function(msg, string, jqXHR) {
+                    myApp.hideIndicator();
+                    myApp.alert(ERROR_ALERT);
+                }
+            });
 }
 
 /* ===== Roster Add Page ===== */
@@ -2062,15 +2117,18 @@ myApp.onPageInit('tournament-list', function(page) {
                         }
                         return found;
                     },
-                    template: '<li>' +
-                        '<a href="tournament_detail.html?tournament_id={{tournament_id}}" class="item-link item-content">' +
+                    template: '<li class="swipeout">' +
+                        '<a href="tournament_detail.html?tournament_id={{tournament_id}}" class="item-link item-content swipeout-content">' +
                         '<div class="item-media"><img data-src="{{tournament_image}}" style="width:44px; height:44px;" class="img-circle lazy lazy-fadein"/></div>' +
                         '<div class="item-inner">' +
                         '<div class="item-title-row">' +
                         '<div class="item-title">{{opponent}}</div>' +
                         '</div>' +
                         '<div class="item-subtitle">{{tournament_date}}</div>' +
-                        '</div></a></li>',
+                        '</div>' +
+                        '</a><div class="swipeout-actions-left">' +
+                            '<a href="#" class="demo-actions" onClick="reportTournamentAbusiveContent({{tournament_id}})">Report</a>' +
+                        '</div></li>',
                     height: 76,
                 });
                 myApp.initImagesLazyLoad(page.container);
@@ -2875,20 +2933,25 @@ function shareMVPOnFacebook(points, assists, fouls, yellowcard, redcard, votes) 
         image_url = localStorage.getItem('mvp_image_url');
     }
 
-    facebookConnectPlugin.showDialog({
-        method: "feed",
-        href: "http://envp.dk",
-        caption: "Congratualtions! You are MVP! Tillykke! Du er kampens spiller! \n" + team_name + " vs " + opponent_name,
-        description: description,
-        picture: image_url,
-        share_feedWeb: true
-    }, function(response) {
-        console.log(response);
-        myApp.closeModal('.popover');
-    }, function(response) {
-        console.log(response);
-        myApp.closeModal('.popover');
-    });
+    // if (image_url != '') {
+        facebookConnectPlugin.showDialog({
+            method: "feed",
+            href: "http://envp.dk",
+            caption: "Congratualtions! You are MVP! Tillykke! Du er kampens spiller! \n" + team_name + " vs " + opponent_name,
+            description: description,
+            picture: image_url,
+            share_feedWeb: true
+        }, function(response) {
+            console.log(response);
+            myApp.closeModal('.popover');
+        }, function(response) {
+            console.log(response);
+            myApp.closeModal('.popover');
+        });
+    // } else {
+    //     myApp.alert('Please take a picture of the MVP!');
+    //     myApp.closeModal('.popover');
+    // }
 }
 
 function shareMVPOnInstagram(points, assists, fouls, yellowcard, redcard, votes, roster_image) {
