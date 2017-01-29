@@ -2378,7 +2378,7 @@ myApp.onPageInit('tournament-detail', function(page) {
         })
         .fail(function(jqXHR, textStatus, errorThrown) {
             myApp.hideIndicator();
-            myApp.alert(AJAX_ERROR_ALERT);
+            // myApp.alert(AJAX_ERROR_ALERT);
         });
 
     $$('#btn-edit-tournament-details').on('click', function() {
@@ -2418,7 +2418,7 @@ myApp.onPageInit('tournament-detail', function(page) {
         })
         .fail(function(jqXHR, textStatus, errorThrown) {
             myApp.hideIndicator();
-            myApp.alert(AJAX_ERROR_ALERT);
+            // myApp.alert(AJAX_ERROR_ALERT);
         });
     // End Preload roster list
 
@@ -2452,7 +2452,7 @@ myApp.onPageInit('tournament-detail', function(page) {
         })
         .fail(function(jqXHR, textStatus, errorThrown) {
             myApp.hideIndicator();
-            myApp.alert(AJAX_ERROR_ALERT);
+            // myApp.alert(AJAX_ERROR_ALERT);
         });
     // End Preload roster list
 
@@ -2475,7 +2475,7 @@ myApp.onPageInit('tournament-detail', function(page) {
         })
         .fail(function(jqXHR, textStatus, errorThrown) {
             myApp.hideIndicator();
-            myApp.alert(AJAX_ERROR_ALERT);
+            // myApp.alert(AJAX_ERROR_ALERT);
         });
 
     $("#vote_list").empty();
@@ -2506,7 +2506,7 @@ myApp.onPageInit('tournament-detail', function(page) {
         })
         .fail(function(jqXHR, textStatus, errorThrown) {
             myApp.hideIndicator();
-            myApp.alert(AJAX_ERROR_ALERT);
+            // myApp.alert(AJAX_ERROR_ALERT);
         });
 
     $("#select-vote-list").empty();
@@ -2524,7 +2524,7 @@ myApp.onPageInit('tournament-detail', function(page) {
         })
         .fail(function(jqXHR, textStatus, errorThrown) {
             myApp.hideIndicator();
-            myApp.alert(AJAX_ERROR_ALERT);
+            // myApp.alert(AJAX_ERROR_ALERT);
         });
     // End Preload vote
 
