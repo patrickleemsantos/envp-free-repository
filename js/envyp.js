@@ -371,12 +371,12 @@ myApp.onPageInit('signup', function(page) {
                 myApp.alert("character ivalid");
                 $$('#btn-signup').removeAttr("disabled");
                 return false;
-            }
+            // }
 
-            if ($('#chkbox-terms').is(':checked') == false) {
-                myApp.alert("Please agree with the terms and conditions");
-                $$('#btn-signup').removeAttr("disabled");
-                return false;
+            // if ($('#chkbox-terms').is(':checked') == false) {
+            //     myApp.alert("Please agree with the terms and conditions");
+            //     $$('#btn-signup').removeAttr("disabled");
+            //     return false;
             } else {
                 myApp.showIndicator();
                 $$.ajax({
@@ -1478,7 +1478,7 @@ myApp.onPageInit('roster-list', function(page) {
         buttons: [{
             text: 'Download',
             onClick: function() {
-                document.location = 'https://itunes.apple.com/us/app/envp/id1197196636?ls=1&mt=8'
+                document.location = 'https://play.google.com/store/apps/details?id=com.envp.dk'
             }
         }, {
             text: 'Cancel',
