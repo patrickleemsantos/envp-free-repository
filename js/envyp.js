@@ -1471,6 +1471,20 @@ myApp.onPageInit('roster-list', function(page) {
     $$('#btn-roster-list-refresh').on('click', function() {
         mainView.router.reloadPage("roster_list.html")
     });
+
+    myApp.modal({
+        title: 'Choose download to get the full version of Envp',
+        horizontalButtons: true,
+        buttons: [{
+            text: 'Download',
+            onClick: function() {
+                document.location = 'https://itunes.apple.com/us/app/envp/id1197196636?ls=1&mt=8'
+            }
+        }, {
+            text: 'Cancel',
+            onClick: function() {}
+        }]
+    });
 });
 
 function deleteRoster(roster_id) {
@@ -2931,9 +2945,10 @@ function shareMVPOnFacebook(points, assists, fouls, yellowcard, redcard, votes) 
         var ft = new FileTransfer();
         ft.upload(imgfile, ENVYP_API_URL + "upload_mvp_image.php", winMVP, fail, options);
         image_url = localStorage.getItem('mvp_image_url');
+        myApp.hideIndicator();
     }
 
-    // if (image_url != '') {
+    if (image_url != '') {
         facebookConnectPlugin.showDialog({
             method: "feed",
             href: "http://envp.dk",
@@ -2948,10 +2963,10 @@ function shareMVPOnFacebook(points, assists, fouls, yellowcard, redcard, votes) 
             console.log(response);
             myApp.closeModal('.popover');
         });
-    // } else {
-    //     myApp.alert('Please take a picture of the MVP!');
-    //     myApp.closeModal('.popover');
-    // }
+    } else {
+        myApp.alert('Please take a picture of the MVP!');
+        myApp.closeModal('.popover');
+    }
 }
 
 function shareMVPOnInstagram(points, assists, fouls, yellowcard, redcard, votes, roster_image) {
