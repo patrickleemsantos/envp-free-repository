@@ -1472,19 +1472,19 @@ myApp.onPageInit('roster-list', function(page) {
         mainView.router.reloadPage("roster_list.html")
     });
 
-    myApp.modal({
-        title: 'Choose download to get the full version of Envp',
-        horizontalButtons: true,
-        buttons: [{
-            text: 'Download',
-            onClick: function() {
-                document.location = 'https://play.google.com/store/apps/details?id=com.envp.dk'
-            }
-        }, {
-            text: 'Cancel',
-            onClick: function() {}
-        }]
-    });
+    // myApp.modal({
+    //     title: 'Choose download to get the full version of Envp',
+    //     horizontalButtons: true,
+    //     buttons: [{
+    //         text: 'Download',
+    //         onClick: function() {
+    //             document.location = 'https://play.google.com/store/apps/details?id=com.envp.dk'
+    //         }
+    //     }, {
+    //         text: 'Cancel',
+    //         onClick: function() {}
+    //     }]
+    // });
 });
 
 function deleteRoster(roster_id) {
