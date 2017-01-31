@@ -1668,24 +1668,24 @@ myApp.onPageInit('roster-detail', function(page) {
     $$("#roster-detail-image").addClass('lazy lazy-fadein');
     myApp.initImagesLazyLoad(page.container);
 
-    myApp.showIndicator();
-    $.getJSON(ENVYP_API_URL + "get_roster_average_stats.php?roster_id=" + page.query.roster_id, function(result) {
-            $.each(result, function(i, field) {
-                $('#roster-ppg').prepend(field.ppg);
-                $('#roster-apg').prepend(field.apg);
-                $('#roster-fpg').prepend(field.fpg);
-                $('#roster-yellowcard').prepend(field.yellowcard);
-                $('#roster-redcard').prepend(field.redcard);
-                $('#roster-votes').prepend(field.votes);
-                $('#roster-mvp').prepend(field.mvp_count);
-                $('#roster-games-played').prepend(field.played);
-            });
-            myApp.hideIndicator();
-        })
-        .fail(function(jqXHR, textStatus, errorThrown) {
-            myApp.hideIndicator();
-            myApp.alert(AJAX_ERROR_ALERT);
-        });
+    // myApp.showIndicator();
+    // $.getJSON(ENVYP_API_URL + "get_roster_average_stats.php?roster_id=" + page.query.roster_id, function(result) {
+    //         $.each(result, function(i, field) {
+    //             $('#roster-ppg').prepend(field.ppg);
+    //             $('#roster-apg').prepend(field.apg);
+    //             $('#roster-fpg').prepend(field.fpg);
+    //             $('#roster-yellowcard').prepend(field.yellowcard);
+    //             $('#roster-redcard').prepend(field.redcard);
+    //             $('#roster-votes').prepend(field.votes);
+    //             $('#roster-mvp').prepend(field.mvp_count);
+    //             $('#roster-games-played').prepend(field.played);
+    //         });
+    //         myApp.hideIndicator();
+    //     })
+    //     .fail(function(jqXHR, textStatus, errorThrown) {
+    //         myApp.hideIndicator();
+    //         myApp.alert(AJAX_ERROR_ALERT);
+    //     });
 
     $$('#btn-edit-roster-detail').on('click', function() {
         mainView.router.loadPage('roster_edit.html?roster_id=' + page.query.roster_id + '&roster_name=' + page.query.roster_name + '&roster_position=' + page.query.roster_position + '&roster_image=' + page.query.roster_image);
