@@ -54,7 +54,7 @@
 	<splash src="img/envp-splash-1536-2048.png" platform="ios" width="1536" height="2048" />
 	<splash src="img/envp-splash-2048-1536.png" platform="ios" width="2048" height="1536" />
 	
-	<preference name="phonegap-version" value="cli-6.4.0" />
+	<preference name="phonegap-version" value="cli-6.5.0" />
 	<preference name="orientation" value="portrait" />
 	<preference name="fullscreen" value="false" />
 	<preference name="android-windowSoftInputMode" value="stateVisible" />
